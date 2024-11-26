@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Fryzjerski Lena</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./zdjecia/logo.png">
+    <style>
+        /* Resetowanie stylów */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #d4af37;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #444, #222);
+            color: #d4af37;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header .logo-container {
+            position: absolute;
+            left: 20px;
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            flex: 1;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px 0;
+            background-color: #1e1e1e;
+        }
+
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Poprawki dla galerii zdjęć */
+        .gallery-slider {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            background-color: #1e1e1e;
+            margin: 10px auto;
+            padding: 20px;
+            display: none; /* Domyślnie ukryte */
+            overflow-x: scroll; /* Umożliwia przewijanie poziome */
+            white-space: nowrap; /* Zapewnia, że zdjęcia będą w jednym wierszu */
+        }
+
+        .gallery-slider.show {
+            display: block; /* Pokazuje galerię */
+        }
+
+        .gallery-slider img {
+            width: auto;
+            height: 200px; /* Wysokość zdjęcia */
+            margin-right: 10px; /* Odstęp między zdjęciami */
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            object-fit: cover; /* Zachowuje proporcje zdjęcia */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #121212;
+            font-size: 1rem;
+            text-align: center;
+            border: none;
+            border-radius: 25px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #b8860b, #d4af37);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #d4af37;
+            text-align: center;
+            padding: 10px 0; /* Mniejsza stopka */
+            margin-top: 50px;
+        }
+
+        footer img {
+            max-width: 80px; /* Mniejsze logo w stopce */
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+    <script>
+        function toggleGallery(galleryId) {
+            const gallery = document.getElementById(galleryId);
+            if (gallery.style.display === "block") {
+                gallery.style.display = "none"; // Chowa galerię
+            } else {
+                gallery.style.display = "block"; // Pokazuje galerię
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="zdjecia/logo.png" alt="Logo salonu">
+        </div>
+        <h1>Salon Fryzjerski Lena</h1>
+    </header>
+
+    <nav>
+        <a href="#about">O nas</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#certificates">Certyfikaty</a>
+        <a href="#contact">Kontakt</a>
+    </nav
+    
+
+        <!-- Zdjęcia salonu -->
+        <section id="salon">
+            <h2>Zdjęcia naszego salonu</h2>
+            <div class="btn-container">
+                <button class="btn" onclick="toggleGallery('salon-gallery')">Zdjęcia salonu</button>
+            </div>
+            <div id="salon-gallery" class="gallery-slider hidden">
+                <img src="zdjecia/salon/1salon.png" alt="Zdjęcie salonu 1">
+                <img src="zdjecia/salon/2salon.png" alt="Zdjęcie salonu 2">
+                <img src="zdjecia/salon/3salon.png" alt="Zdjęcie salonu 3">
+            </div>
+        </section>
+
+        <!-- Galeria zdjęć -->
+        <section id="gallery">
+            <h2>Galeria</h2>
+            <div class="btn-container">
+                <button class="btn" onclick="toggleGallery('gallery-photos')">Galeria zdjęć</button>
+            </div>
+            <div id="gallery-photos" class="gallery-slider hidden">
+                <img src="zdjecia/galeria/1.png" alt="Zdjęcie 1">
+                <img src="zdjecia/galeria/2.png" alt="Zdjęcie 2">
+                <img src="zdjecia/galeria/3.png" alt="Zdjęcie 3">
+                <img src="zdjecia/galeria/4.png" alt="Zdjęcie 4">
+                <img src="zdjecia/galeria/5.png" alt="Zdjęcie 5">
+            </div>
+        </section>
+
+
+
+        <!-- Kontakt -->
+        <section id="contact">
+            <h2>Kontakt</h2>
+            <div class="btn-container">
+                <button class="btn" onclick="window.location.href='tel:+48799411806'">📞 Zadzwoń: +48 123 456 789</button>
+                <button class="btn" onclick="window.location.href='mailto:urszulka1359@gmail.con'">✉️ Napisz: kontakt@salonfryzjerski.pl</button>
+                <button class="btn" onclick="window.location.href='https://booksy.com/pl-pl/159042_salon-lena_fryzjer_3_warszawa'">🌐 Zarezerwuj przez Booksy</button>
+                <button class="btn" onclick="window.location.href='https://maps.app.goo.gl/DHMYNrJpLDVRAsTd9'">🏠 Adres: 05-091 Ząbki, ul. Ks. I. Skorupki 6/2</button>
+            </div>
+       
+        </section>
+        <div class="container">
+            <!-- Opis salonu -->
+            <section id="about">
+                <h2>O salonie</h2>
+                <p>・Strzyżenie damskie, męskie oraz dziecięce.</p>
+            </section>
+    </div>
+        <!-- Certyfikaty -->
+        <section id="certificates">
+            <h2>Nasze certyfikaty</h2>
+            <div class="gallery">
+                <img src="zdjecia/certyfikaty/1cert.png" alt="Certyfikat 1">
+                <img src="zdjecia/certyfikaty/2cert.png" alt="Certyfikat 2">
+                <img src="zdjecia/certyfikaty/3cert.png" alt="Certyfikat 3">
+                <img src="zdjecia/certyfikaty/4cert.png" alt="Certyfikat 4">
+                <img src="zdjecia/certyfikaty/5cert.png" alt="Certyfikat 5">
+            </div>
+        </section>
+    <footer>
+        <p>&copy; 2024 Salon Fryzjerski - Nowoczesny Styl. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+</body>
+</html>
